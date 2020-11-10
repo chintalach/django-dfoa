@@ -1,0 +1,126 @@
+{% extends "ams/base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2>Create Tenant Details</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="tenant_flatno">Flat No</label>
+                    <div class="control">
+                        <div class="select">
+                            {% render_field form.tenant_flatno %}        
+                         </div> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tenant_first_name">First Name</label>
+                    <div class="control">
+                        {% render_field form.tenant_first_name class="form-control" placeholder="Enter First Name" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tenant_last_name">Last Name</label>
+                    <div class="control">
+                        {% render_field form.tenant_last_name class="form-control" placeholder="Enter Last Name" %}        
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tenant_email">Email Id</label>
+                    <div class="control">
+                        {% render_field form.tenant_email class="form-control" placeholder="your@email.com" %}        
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tenant_phone_number">Mobile Number</label>
+                    <div class="control">
+                        {% render_field form.tenant_phone_number class="form-control" placeholder="+91123456789" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tenant_permnt_addr1">Address1</label>
+                    <div class="control">
+                        {% render_field form.tenant_permnt_addr1 class="form-control" placeholder="Houseno,flatno and so on" %}        
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="tenant_permnt_addr2">Address2</label>
+                    <div class="control">
+                        {% render_field form.tenant_permnt_addr2 class="form-control" placeholder="Area name" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tenant_permnt_city">City</label>
+                    <div class="control">
+                        {% render_field form.tenant_permnt_city class="form-control" placeholder="City" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tenant_permnt_state">State</label>
+                    <div class="control">
+                        {% render_field form.tenant_permnt_state class="form-control" placeholder="State" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tenant_permnt_country">State</label>
+                    <div class="control">
+                        {% render_field form.tenant_permnt_country class="form-control" placeholder="Country" %}        
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="tenant_permnt_pincode">Pincode</label>
+                    <div class="control">
+                        {% render_field form.tenant_permnt_pincode class="form-control" placeholder="500029" %}        
+                    </div>
+                </div>
+                
+                <div class="form-group form-check">
+                    <input type="checkbox" name="tenant_police_verification" class="form-check-input" id="tenant_police_verification">
+                    <label class="form-check-label" for="tenant_police_verification">Police Verification Done or not</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="tenant_occupy_date">Flat Check In Date</label>
+                    <div class="control">
+                        {% render_field form.tenant_occupy_date class="form-control" type="date" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tenant_vacate_date">Flat Vacate Date</label>
+                    <div class="control">
+                        {% render_field form.tenant_vacate_date class="form-control" type="date" %}        
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+            
+            
+        </div>
+    </div>
+{% endblock %}

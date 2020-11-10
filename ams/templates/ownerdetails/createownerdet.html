@@ -1,0 +1,117 @@
+{% extends "ams/base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2>Create Owner Details</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="owner_flatno">Flat No</label>
+                    <div class="control">
+                        <div class="select">
+                            {% render_field form.owner_flatno %}        
+                         </div> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner_first_name">First Name</label>
+                    <div class="control">
+                        {% render_field form.owner_first_name class="form-control" placeholder="Enter First Name" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner_last_name">Last Name</label>
+                    <div class="control">
+                        {% render_field form.owner_last_name class="form-control" placeholder="Enter Last Name" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner_dob">Date of Birth</label>
+                    <div class="control">
+                        {% render_field form.owner_dob class="form-control" type="date" %}        
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="owner_email">Email Id</label>
+                    <div class="control">
+                        {% render_field form.owner_email class="form-control" placeholder="your@email.com" %}        
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="owner_phone_number">Mobile Number</label>
+                    <div class="control">
+                        {% render_field form.owner_phone_number class="form-control" placeholder="+91123456789" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner_comm_addr1">Address1</label>
+                    <div class="control">
+                        {% render_field form.owner_comm_addr1 class="form-control" placeholder="Houseno,flatno and so on" %}        
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="owner_comm_addr2">Address2</label>
+                    <div class="control">
+                        {% render_field form.owner_comm_addr2 class="form-control" placeholder="Area name" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner_comm_city">City</label>
+                    <div class="control">
+                        {% render_field form.owner_comm_city class="form-control" placeholder="City" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner_comm_state">State</label>
+                    <div class="control">
+                        {% render_field form.owner_comm_state class="form-control" placeholder="State" %}        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner_comm_country">State</label>
+                    <div class="control">
+                        {% render_field form.owner_comm_country class="form-control" placeholder="Country" %}        
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="owner_comm_pincode">Pincode</label>
+                    <div class="control">
+                        {% render_field form.owner_comm_pincode class="form-control" placeholder="500029" %}        
+                    </div>
+                </div>
+                
+                <div class="form-group form-check">
+                    <input type="checkbox" name="tenant_occupied" class="form-check-input" id="tenant_occupied">
+                    <label class="form-check-label" for="tenant_occupied">Given for Rental</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+            
+            
+        </div>
+    </div>
+{% endblock %}
